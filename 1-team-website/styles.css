@@ -4,7 +4,6 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#roster{
-    border: 100pt black;
-    text-align: center;
+.prevmonth {
+    color: gray;
 }
