@@ -1,0 +1,37 @@
+<html>
+    <header>
+        <h1>Rectangle Formula</h1>
+    </header>
+    <script>
+        function calculateArea(){
+            var height = document.forms[0].elements['height'].value;
+            var width = document.forms[0].elements['width'].value;
+
+            var area = height*width;
+            var perimeter = 2*height+2*width;
+
+            console.log('Area is' + area);
+
+            document.getElementById('results').innerHTML=
+                '<table>' +
+                    '<tr>' +
+                        '<td>Area</td>' +
+                        '<td>' + area + '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                        '<td>Perimeter</td>' +
+                        '<td>' + perimeter + '</td>' +
+                    '</tr>'
+        }
+    </script>
+    <body>
+        <form>
+            Height: <input type="text" name="height"><br>
+            Width: <input type="text" name="width"><br>
+
+            <input type="button" value="Get Area" onclick="calculateArea()">
+            
+            <div id="results">Your answer will appear here</div>
+        </form>
+    </body>
+</html>

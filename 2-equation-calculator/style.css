@@ -1,0 +1,20 @@
+html {
+    background-color: lightgreen;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+input {
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.exists {
+    font-family: cursive;
+}
+
+.center {
+    text-align: center;
+}
