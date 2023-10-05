@@ -9,19 +9,25 @@
         <h3 class="exists">pH Calculator</h3>
         
         <p class="exists">What is the concentration of H+?</p><input type="number" id="concentration">
-        <p class="exists">How many significant figures?</p><input type="text" id="sigfig"> <br><br>
+        <p class="exists">How many significant figures?</p><input type="text" id="pHsigfig"> <br><br>
         <input type="button" value="Calculate pH" onclick="calculatepH()">
         <div></div>
         <div id="pH" class="exists"></div>
         <div></div>
+        <br><br><br>
 
-        <h3 class="exists">Ideal Gas Law (PV/nRT)</h3>
-        <p class="exists">What are you trying to find</p>
-        <select name="variable" id="variable" class="exists">
-            <option value="" class="exists">Pressure (atm)</option>
-            <option value="" class="exists">Volume (liters)</option>
-            <option value="" class="exists">Moles</option>
-            <option value="" class="exists">Temperature (kelvin)</option>
-        </select>
+        <h3 class="exists">Specific Heat Capacity</h3>
+        <h4 class="exists">q=mc∆T</h4>
+        <p class="exists">What is the mass of the material?</p><input type="number" class="exists" id="mass">
+        <p class="exists">What is the specific heat capacity of the material?</p><input type="number" class="exists" id="heatCapacity">
+        <p class="exists">What is the initial temperature?</p><input type="number" class="exists" id="ti">
+        <p class="exists">What is the final temperature?</p><input type="number" class="exists" id="tf"> <br><br>
+        <input type="button" value="Calculate heat" onclick="specificHeat()">
+        <div id="heat" class="exists"></div>
+
+        <h3 class="exists">Convert Celcius to Kelvin</h3>
+        <p class="exists">What is the temperature in Celcius</p><input type="number" class="exists" id="celcius"> <br>
+        <input type="button" value="Calculate Kelvin" onclick="convertTemp()">
+        <div class="exists" id="kelvin"></div>
     </body>
 </html>
