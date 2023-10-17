@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Example SVG Game: Craps</title>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts.js"></script>
+    </head>
+
+    <body>
+        <h1>Example SVG Game: Craps</h1>
+
+        <svg width="500" height="300" style="background-color: green;">
+            
+            <g transform="translate(100,100)">
+                <rect id="d1" height="100" width="100" class="die"/>
+                <circle id="d1p1" class="pip" cx="25" cy="25" r="5"/>
+                <circle id="d1p3" class="pip" cx="25" cy="75" r="5"/>
+                <circle id="d1p2" class="pip" cx="25" cy="50" r="5"/>
+                <circle id="d1p4" class="pip" cx="50" cy="50" r="5"/>
+                <circle id="d1p5" class="pip" cx="75" cy="25" r="5"/>
+                <circle id="d1p6" class="pip" cx="75" cy="50" r="5"/>
+                <circle id="d1p7" class="pip" cx="75" cy="75" r="5"/>
+            </g>
+
+            <g transform="translate(300,100)">
+                <rect id="d2" height="100" width="100" class="die"/>
+                <circle id="d2p1" class="pip" cx="25" cy="25" r="5"/>
+                <circle id="d2p3" class="pip" cx="25" cy="75" r="5"/>
+                <circle id="d2p2" class="pip" cx="25" cy="50" r="5"/>
+                <circle id="d2p4" class="pip" cx="50" cy="50" r="5"/>
+                <circle id="d2p5" class="pip" cx="75" cy="25" r="5"/>
+                <circle id="d2p6" class="pip" cx="75" cy="50" r="5"/>
+                <circle id="d2p7" class="pip" cx="75" cy="75" r="5"/>
+            </g>
+            
+        </svg>
+
+        <input type="button" value="Roll Dice" onclick="rollDice()">
+    </body>
+
+</html>

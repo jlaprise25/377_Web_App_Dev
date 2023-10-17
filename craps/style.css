@@ -1,0 +1,12 @@
+.die {
+                 
+    fill: white; 
+    stroke: black;  
+    stroke-width: 2;
+}
+
+.pip {
+    fill: black;
+    stroke: black;
+    visibility: visible;
+}
