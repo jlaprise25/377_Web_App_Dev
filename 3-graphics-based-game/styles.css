@@ -1,0 +1,27 @@
+svg {
+    background-color: green;
+    display: block;
+    margin: auto;
+}
+
+#startButton {
+    display: block;
+    margin: auto;
+}
+
+.card {
+    fill: white;
+    stroke-width: 2px;
+    stroke: black;
+}
+
+.cardFace {
+    width: 100;
+    height: 141;
+}
+
+.buttons {
+    display: block;
+    margin: auto;
+}
+

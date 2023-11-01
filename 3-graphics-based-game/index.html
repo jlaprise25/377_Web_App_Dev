@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Blackjack</title>
+        <script src="scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+
+    <body>
+        <h1>Blackjack</h1>
+        
+        <svg height="500px" width="500">
+            <g transform="translate(170, 39)">
+                <rect class="card" width="100" height="141" />
+                <image id="c1" class="cardFace" href="backs/blue2.svg" alt="adf"></image>
+                
+
+            </g>
+
+            <g transform="translate(210, 44)">
+                <rect class="card" width="100" height="141" />
+                <image id="c2" class="cardFace" href="backs/blue2.svg" alt="adf"></image>
+            </g>
+
+
+            <g transform="translate(170, 320)">
+                <rect class="card" width="100" height="141" />
+                <image id="c3" class="cardFace" href="backs/red2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(210, 325)">
+                <rect class="card" width="100" height="141" />
+                <image id="c4" class="cardFace" href="backs/red2.svg" alt="adf"></image>
+            </g>
+            
+            
+
+            
+            
+        </svg>
+        <br>
+        <input id="startButton" class="buttons" type="button" value="Start" onclick="startGame()">
+        <input class="buttons" type="button" value="Hit" onclick="hit()">
+        <input class="buttons" type="button" value="Stay" onclick="stay()">
+        <!-- <div id="card"></div> -->
+    </body>
+</html>
