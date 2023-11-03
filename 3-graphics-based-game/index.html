@@ -10,38 +10,73 @@
         <h1>Blackjack</h1>
         
         <svg height="500px" width="500">
+
+            <text class="onTable" x="250" y="250">Blackjack Pays 3 To 2</text>
+            <text class="onTable" x="250" y="270">Dealer Must Hit On 16 And Stand On All 17s</text>
+
+
             <g transform="translate(170, 39)">
-                <rect class="card" width="100" height="141" />
-                <image id="c1" class="cardFace" href="backs/blue2.svg" alt="adf"></image>
+                <image id="c1" class="cardFace ddownCard" href="backs/blue2.svg" alt="adf"></image>
                 
 
             </g>
 
-            <g transform="translate(210, 44)">
-                <rect class="card" width="100" height="141" />
-                <image id="c2" class="cardFace" href="backs/blue2.svg" alt="adf"></image>
+            <g transform="translate(205, 42)">
+                <image id="c2" class="cardFace ddownCard" href="backs/blue2.svg" alt="adf"></image>
             </g>
+
+            <g transform="translate(240, 42)">
+                <image id="dhc1" class="cardFace hitCard" href="backs/blue2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(275, 42)">
+                <image id="dhc2" class="cardFace hitCard" href="backs/blue2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(310, 42)">
+                <image id="dhc3" class="cardFace hitCard" href="backs/blue2.svg" alt="adf"></image>
+            </g>
+
+
 
 
             <g transform="translate(170, 320)">
-                <rect class="card" width="100" height="141" />
-                <image id="c3" class="cardFace" href="backs/red2.svg" alt="adf"></image>
+                <image id="c3" class="cardFace pdownCard" href="backs/red2.svg" alt="adf"></image>
             </g>
 
-            <g transform="translate(210, 325)">
-                <rect class="card" width="100" height="141" />
-                <image id="c4" class="cardFace" href="backs/red2.svg" alt="adf"></image>
+            <g transform="translate(205, 323)">
+                <image id="c4" class="cardFace pdownCard" href="backs/red2.svg" alt="adf"></image>
             </g>
             
-            
+            <g transform="translate(240, 323)">
+                <image id="hc1" class="cardFace hitCard" href="backs/red2.svg" alt="adf"></image>
+            </g>
 
-            
-            
+            <g transform="translate(275, 323)">
+                <image id="hc2" class="cardFace hitCard" href="backs/red2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(310, 323)">
+                <image id="hc3" class="cardFace hitCard" href="backs/red2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(345, 323)">
+                <image id="hc4" class="cardFace hitCard" href="backs/red2.svg" alt="adf"></image>
+            </g>
+
+            <g transform="translate(380, 323)">
+                <image id="hc5" class="cardFace hitCard" href="backs/red2.svg" alt="adf"></image>
+            </g>
+
+            <text class="onTable" id="message" x="250" y="485"></text>
         </svg>
-        <br>
-        <input id="startButton" class="buttons" type="button" value="Start" onclick="startGame()">
-        <input class="buttons" type="button" value="Hit" onclick="hit()">
-        <input class="buttons" type="button" value="Stay" onclick="stay()">
-        <!-- <div id="card"></div> -->
+        <div class="inputs">
+            <input id="startButton" type="button" value="Start" onclick="startGame()">
+            <input type="number" id="bet" placeholder="Min. Bet $5">
+            Funds: <span id="funds">$50</span>
+            <input type="button" value="Hit" onclick="hit()">
+            <input type="button" value="Stay" onclick="stay()">
+        </div>
+        
     </body>
 </html>
