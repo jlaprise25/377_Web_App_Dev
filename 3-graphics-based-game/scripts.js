@@ -45,7 +45,7 @@ function hit(){
         $("#hc" + COUNT).attr("href", cardFile);
         $("#hc" + COUNT).css("visibility", "visible");
 
-        COUNT++
+        COUNT++;
     }
     PLAYERTOT += getTot(PLAYER) - PLAYERTOT;
     if(PLAYERTOT >= 22){
@@ -65,9 +65,6 @@ function stay(){
     if(DCOUNT == 1){
        dealDealer();
     } else {
-        console.log("PTOT  " + PLAYERTOT)
-        console.log("DTOT  " + DEALERTOT)
-        // clearInterval(myInterval);
         if((PLAYERTOT > DEALERTOT && PLAYERTOT < 22) ||
            (DEALERTOT > 21)){
             endGame(true);
@@ -85,24 +82,17 @@ function dealDealer(){
 
         $("#c" + 2).attr("href", dc2);
         $("#c" + 2).css("visibility", "visible");
-        // DEALERTOT += getTot(DEALER) - DEALERTOT;
-        DCOUNT++
+        DCOUNT++;
     } 
     while(DEALERTOT < 16){
         if(1< DCOUNT <= 3){
             var card = getCard();
             var cardFile = getCardFile(card);
             DEALER.push(card);
-            console.log(DCOUNT -1);
-            console.log(cardFile);
-    
-            $("#dhc" + DCOUNT - 1).attr("href", getCardFile(card));
-            $("#dhc" + DCOUNT - 1).css("visibility", "visible");
-
-            // $(".hitcard").attr("href", cardFile);
-            // $(".hitcard").css("visibility", "visible");
+            $("#dhc" + (DCOUNT - 1)).attr("href", getCardFile(card));
+            $("#dhc" + (DCOUNT - 1)).css("visibility", "visible");
             DEALERTOT += getTot(DEALER) - DEALERTOT;
-            DCOUNT++
+            DCOUNT++;
         }
     }
     stay();
@@ -213,6 +203,5 @@ function resetGame(){
     $(".ddownCard").attr("href", "backs/blue2.svg");
     $(".pdownCard").attr("href", "backs/red2.svg");
     $("#message").text("");
-    $("#funds").text("");
-    
+    $("#funds").val(" ");
 }
