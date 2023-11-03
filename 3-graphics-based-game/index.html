@@ -11,14 +11,12 @@
         
         <svg height="500px" width="500">
 
-            <text class="onTable" x="250" y="250">Blackjack Pays 3 To 2</text>
-            <text class="onTable" x="250" y="270">Dealer Must Hit On 16 And Stand On All 17s</text>
+            <!-- <text class="onTable" x="250" y="250">Blackjack Pays 3 To 2</text> -->
+            <text class="onTable" x="250" y="250">Dealer Must Hit On 16 And Stand On All 17s</text>
 
 
             <g transform="translate(170, 39)">
                 <image id="c1" class="cardFace ddownCard" href="backs/blue2.svg" alt="adf"></image>
-                
-
             </g>
 
             <g transform="translate(205, 42)">
@@ -72,7 +70,7 @@
         </svg>
         <div class="inputs">
             <input id="startButton" type="button" value="Start" onclick="startGame()">
-            <input type="number" id="bet" placeholder="Min. Bet $5">
+            <input type="number" id="bet" name="bet" placeholder="Min. Bet $5">
             Funds: <span id="funds">$50</span>
             <input type="button" value="Hit" onclick="hit()">
             <input type="button" value="Stay" onclick="stay()">
@@ -84,6 +82,5 @@
             3.Try to get as close to 21 without going over <br>
             4.Hit stay to keep your current score. The game will reset automatically
         </p>
-        
     </body>
 </html>

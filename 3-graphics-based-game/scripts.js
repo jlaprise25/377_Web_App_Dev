@@ -123,7 +123,7 @@ function endGame(win){
     } else {
         $("#message").text("Push");
     }
-    $("#funds").text(funds);
+    $("#funds").text("$" + funds);
 
     setTimeout(resetGame, 5000)
 }
