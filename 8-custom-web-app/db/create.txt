@@ -1,0 +1,11 @@
+CREATE SCHEMA `musicdb` ;
+
+CREATE TABLE `musicdb`.`songs` (
+  `son_id` INT NOT NULL AUTO_INCREMENT,
+  `son_name` VARCHAR(200) NOT NULL,
+  `son_artist` VARCHAR(200) NOT NULL,
+  `son_genre` VARCHAR(45) NULL,
+  `son_album` VARCHAR(200) NULL,
+  `son_year` INT NULL,
+  `son_spotlink` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`son_id`));
