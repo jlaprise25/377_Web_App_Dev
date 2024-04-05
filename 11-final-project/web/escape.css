@@ -1,5 +1,24 @@
 .outline{
     fill: white;
     stroke: black;
-    stroke-width: 5;
+    stroke-width: 5px;
+}
+
+.door{
+    fill: rgb(77, 34, 1);
+    stroke: black;
+    stroke-width: 2px;
+    /* visibility: visible; */
+}
+
+.doorknob{
+    fill: yellow;
+    stroke: black; 
+    stroke-width: 2px; 
+}
+
+.menuButton{
+    fill: lightgrey;
+    stroke: black;
+    stroke-width: 2px;
 }
