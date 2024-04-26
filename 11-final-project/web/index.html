@@ -9,7 +9,7 @@
         <svg width="1345" height="605">
             <rect width="1335" height="595" x="5" y="5" class="outline"/>
             
-            <g id="door" transform="translate(500,200)"  onclick="openDoor(123)">
+            <g id="door" transform="translate(500,200)" visibility="visible" onclick="openDoor(123)">
                 <rect x="0" y="0" height="240" width="130" class="door"/>
                 <rect x="10" y="15" height="100" width="50" class="door"/>
                 <rect x="10" y="125" height="100" width="50" class="door"/>
@@ -18,7 +18,16 @@
                 <circle r="7" cx="120" cy="120" class="doorknob"/>
             </g>
 
-            <g id="leaderboard" >
+            <g id="lock" visibility="hidden">
+                <rect id="lock1" x="0" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(1)"/>
+                <rect id="lock2" x="50" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(2)"/>
+                <rect id="lock3" x="100" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(3)"/>
+                <text id="lotx1" x="7.5" y="42.5" font-size="50" onclick="lock(1)">1</text>
+                <text id="lotx2" x="60" y="42.5" font-size="50" onclick="lock(2)">1</text>
+                <text id="lotx3" x="110" y="42.5" font-size="50" onclick="lock(3)">1</text>
+            </g>
+
+            <g id="leaderboard" visibility="visible">
                 <rect x="0" y="0" height="50" width="50" class="menuButton"/>
                 <path 
                     stroke="black"
@@ -34,7 +43,7 @@
                             v 30"/>
             </g>
 
-            <g id="wallSodoku" transform="translate(100,100)" onclick="sodoku()">
+            <g id="wallSodoku" transform="translate(100,100)" visibility="visible" onclick="sodoku()">
                 <rect x="0" y="0" width="50" height="50" stroke="black" stroke-width="2px" fill="white"/>
                 <line x1="16.6" y1="0" x2="16.6" y2="50" stroke="black"/>
                 <line x1="33.3" y1="0" x2="33.3" y2="50" stroke="black"/>
