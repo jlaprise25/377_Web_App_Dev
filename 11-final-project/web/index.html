@@ -1,59 +1,34 @@
 <!DOCTYPE html>
-<html>
-    <header>
-        <link rel="stylesheet" href="escape.css">
-        <script src="escape.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    </header>
-    <body>
-        <svg width="1345" height="605">
-            <rect width="1335" height="595" x="5" y="5" class="outline"/>
-            
-            <g id="door" transform="translate(500,200)" visibility="visible" onclick="openDoor(123)">
-                <rect x="0" y="0" height="240" width="130" class="door"/>
-                <rect x="10" y="15" height="100" width="50" class="door"/>
-                <rect x="10" y="125" height="100" width="50" class="door"/>
-                <rect x="70" y="15" height="100" width="50" class="door"/>
-                <rect x="70" y="125" height="100" width="50" class="door"/>
-                <circle r="7" cx="120" cy="120" class="doorknob"/>
-            </g>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Puzzle Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <svg id="sudoku" width="600" height="370">
+        <g id="svgcontent" transform="translate(4,4)"></g>
 
-            <g id="lock" visibility="hidden">
-                <rect id="lock1" x="0" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(1)"/>
-                <rect id="lock2" x="50" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(2)"/>
-                <rect id="lock3" x="100" y="0" width="40" height="50" fill="white" stroke="black" onclick="lock(3)"/>
-                <text id="lotx1" x="7.5" y="42.5" font-size="50" onclick="lock(1)">1</text>
-                <text id="lotx2" x="60" y="42.5" font-size="50" onclick="lock(2)">1</text>
-                <text id="lotx3" x="110" y="42.5" font-size="50" onclick="lock(3)">1</text>
-            </g>
-
-            <g id="leaderboard" visibility="visible">
-                <rect x="0" y="0" height="50" width="50" class="menuButton"/>
-                <path 
-                    stroke="black"
-                    d = "M 10,50
-                            v -20
-                            h 10
-                            v 20
-                            v -40
-                            h 10
-                            v 40
-                            v -30
-                            h 10
-                            v 30"/>
-            </g>
-
-            <g id="wallSodoku" transform="translate(100,100)" visibility="visible" onclick="sodoku()">
-                <rect x="0" y="0" width="50" height="50" stroke="black" stroke-width="2px" fill="white"/>
-                <line x1="16.6" y1="0" x2="16.6" y2="50" stroke="black"/>
-                <line x1="33.3" y1="0" x2="33.3" y2="50" stroke="black"/>
-                <line x1="0" y1="16.6" x2="50" y2="16.6" stroke="black"/>
-                <line x1="0" y1="33.3" x2="50" y2="33.3" stroke="black"/>
-            </g>
-
-            <g id="sodoku"></g>
-
-        </svg>
-    </body>
+        <g id="leaderboard" visibility="visible" transform="translate(500,10)" onclick="toScoreboard()">
+            <rect x="0" y="0" height="50" width="50" class="menuButton"/>
+            <path 
+                stroke="black"
+                d = "M 10,50
+                        v -20
+                        h 10
+                        v 20
+                        v -40
+                        h 10
+                        v 40
+                        v -30
+                        h 10
+                        v 30"/>
+        </g>
+    </svg>
+    <button id="generate-btn" visibility="visible" onclick="generateSudoku()">Generate Sudoku Puzzle</button>
     
+</body>
 </html>
