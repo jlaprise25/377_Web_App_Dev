@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Puzzle Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <svg id="sudoku" width="600" height="370">
+        <g id="svgcontent" transform="translate(4,4)"></g>
+
+        <g id="leaderboard" visibility="visible" transform="translate(500,10)" onclick="toScoreboard()">
+            <rect x="0" y="0" height="50" width="50" class="menuButton"/>
+            <path 
+                stroke="black"
+                d = "M 10,50
+                        v -20
+                        h 10
+                        v 20
+                        v -40
+                        h 10
+                        v 40
+                        v -30
+                        h 10
+                        v 30"/>
+        </g>
+    </svg>
+    <button id="generate-btn" visibility="visible" onclick="generateSudoku()">Generate Sudoku Puzzle</button>
+    
+</body>
+</html>
