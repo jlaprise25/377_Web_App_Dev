@@ -1,5 +1,6 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
+
 
 public class Battleship {
     private int ammo;
@@ -31,6 +32,8 @@ public class Battleship {
                 gameBoard[row][col] = " ";
             }
         }
+
+        setShips();
     }
 
     public int getAmmo()
@@ -50,24 +53,259 @@ public class Battleship {
         if (gameBoard[col][row] != " ") {
             System.out.println("Hit!");
             playerBoard[col][row] = "X";
+            gameBoard[col][row] = gameBoard[col][row].toUpperCase();
+
+            for(Ship boat : ships)
+            {
+                if(gameBoard[col][row].equals(boat.getSymbol().toUpperCase()))
+                {
+                    updateSunk(boat);
+                    break;
+                }
+            }
         }
         else
         {
             System.out.println("Miss!");
             playerBoard[col][row] = "O";
+            gameBoard[col][row] = "O";
+        }
+
+        ammo--;
+    }
+
+    public void setShips()
+    {
+        Ship carrier = new Ship("Carrier", "c", 5);
+        ships.add(carrier);
+        Ship bship = new Ship("Battleship", "b", 4);
+        ships.add(bship);
+        Ship destroyer = new Ship("Destroyer", "d", 3);
+        ships.add(destroyer);
+        Ship sub = new Ship("Submarine", "s", 3);
+        ships.add(sub);
+        Ship patrol = new Ship("Patrol Boat", "p", 2);
+        ships.add(patrol);
+
+        Random rand = new Random();
+
+        for(Ship boat : ships)
+        {
+            while(true)
+            {
+                int posX = rand.nextInt(10);
+                int posY = rand.nextInt(10);
+            
+                while(!(gameBoard[posY][posX].equals(" ")))
+                {
+                    posX = rand.nextInt(10);
+                    posY = rand.nextInt(10);
+                }
+
+                // 0 = Down, 1 = Up, 2 = Right, 3 = Left
+                int orient = rand.nextInt(4);
+
+                boolean ver = true;
+
+                if (orient == 0) 
+                {
+                    if(posY + boat.getLength() > gameBoard.length)
+                    {
+                        ver = false;
+                    }
+                    else
+                    {
+                        for(int i = 0; i < boat.getLength(); i++)
+                        {
+                            if(!(gameBoard[posY + i][posX].equals(" ")))
+                            {
+                                ver = false;
+                            }
+                        }
+                    }
+
+                    if(ver)
+                    {
+                        for(int i = posY; i < boat.getLength() + posY; i++)
+                        {
+                            gameBoard[i][posX] = boat.getSymbol();
+                        }
+
+                        boat.setX(posX);
+                        boat.setY(posY);
+                        boat.setOrientation(orient);
+                        break;
+                    }
+                }
+                else if(orient == 1)
+                {
+                    if(posY - boat.getLength() < 0)
+                    {
+                        ver = false;
+                    }
+                    else
+                    {
+                        for(int i = 0; i < boat.getLength(); i++)
+                        {
+                            if(!(gameBoard[posY - i][posX].equals(" ")))
+                            {
+                                ver = false;
+                            }
+                        }
+                    }
+
+                    if(ver)
+                    {
+                        for(int i = posY; i > posY - boat.getLength(); i--)
+                        {
+                            gameBoard[i][posX] = boat.getSymbol();
+                        }
+
+                        boat.setX(posX);
+                        boat.setY(posY);
+                        boat.setOrientation(orient);
+                        break;
+                    }
+                }
+                else if(orient == 2)
+                {
+                    if(posX + boat.getLength() > gameBoard[0].length)
+                    {
+                        ver = false;
+                    }
+                    else
+                    {
+                        for(int i = 0; i < boat.getLength(); i++)
+                        {
+                            if(!(gameBoard[posY][posX + i].equals(" ")))
+                            {
+                                ver = false;
+                            }
+                        }
+                    }
+
+                    if(ver)
+                    {
+                        for(int i = posX; i < boat.getLength() + posX; i++)
+                        {
+                            gameBoard[posY][i] = boat.getSymbol();
+                        }
+
+                        boat.setX(posX);
+                        boat.setY(posY);
+                        boat.setOrientation(orient);
+                        break;
+                    }
+                }
+                else 
+                {
+                    if(posX - boat.getLength() < 0)
+                    {
+                        ver = false;
+                    }
+                    else
+                    {
+                        for(int i = 0; i < boat.getLength(); i++)
+                        {
+                            if(!(gameBoard[posY][posX - i].equals(" ")))
+                            {
+                                ver = false;
+                            }
+                        }
+                    }
+
+                    if(ver)
+                    {
+                        for(int i = posX; i > posX - boat.getLength(); i--)
+                        {
+                            gameBoard[posY][i] = boat.getSymbol();
+                        }
+
+                        boat.setX(posX);
+                        boat.setY(posY);
+                        boat.setOrientation(orient);
+                        break;
+                    }
+                }
+            }
         }
     }
 
-    public void setShip()
+    public void updateSunk(Ship boat)
     {
-        Ship boat = new Ship("a", 5, 0, 0);
-        
-        for(int i = boat.getY(); i < boat.getLength(); i++)
+        String seg = "";
+        if(boat.getOrientation() == 0)
         {
-            gameBoard[i][boat.getX()] = boat.getName();
+            for(int row = boat.getY(); row < boat.getLength() + boat.getY(); row++)
+            {
+                seg = seg + gameBoard[row][boat.getX()];
+            }
+            
+            if(seg.toUpperCase().equals(seg))
+            {
+                boat.setSunk(true);
+
+                System.out.println("You've sunk the " + boat.getName() + "!");
+            }
+        }
+        else if(boat.getOrientation() == 1)
+        {
+            for(int row = boat.getY(); row > boat.getLength() - boat.getY(); row--)
+            {
+                seg = seg + gameBoard[row][boat.getX()];
+            }
+            
+            if(seg.toUpperCase().equals(seg))
+            {
+                boat.setSunk(true);
+
+                System.out.println("You've sunk the " + boat.getName() + "!");
+            }
+        }
+        else if(boat.getOrientation() == 2)
+        {
+            for(int col = boat.getX(); col < boat.getLength() + boat.getX(); col++)
+            {
+                seg = seg + gameBoard[boat.getY()][col];
+            }
+            
+            if(seg.toUpperCase().equals(seg))
+            {
+                boat.setSunk(true);
+
+                System.out.println("You've sunk the " + boat.getName() + "!");
+            }
+        }
+        else 
+        {
+            for(int col = boat.getX(); col > boat.getLength() - boat.getX(); col--)
+            {
+                seg = seg + gameBoard[boat.getY()][col];
+            }
+            
+            if(seg.toUpperCase().equals(seg))
+            {
+                boat.setSunk(true);
+
+                System.out.println("You've sunk the " + boat.getName() + "!");
+            }
+        }
+    }
+
+    public boolean checkWin()
+    {
+        boolean condition = true;
+
+        for(Ship boat : ships)
+        {
+            if(boat.getSunk() == false)
+            {
+                condition = false;
+                break;
+            }
         }
 
-        ships.add(boat);
+        return condition;
     }
 
     public void printBoard(boolean reveal)
