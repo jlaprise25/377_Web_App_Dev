@@ -11,12 +11,13 @@ import java.util.List;
 public class Quiz {
     private List<Question> questions = new ArrayList<>();
 
+    // Creates a Quiz object from a local CSV resource named questions.csv and runs the quiz.
     public static void main(String[] args) {
         Quiz q = new Quiz("questions.csv");
         q.run();
     }
 
-    // Reads a csv file and creates question objects
+    // Constructs a Quiz with questions loaded from the given CSV file.
     public Quiz(String csvName)
     {
         try
@@ -62,7 +63,8 @@ public class Quiz {
         }
     }
 
-    // Contains logic for the user interface 
+    // Runs the quiz by asking each question and checking whether the user's response is correct. 
+    // The order of the questions will be shuffled every time the quiz is run.
     public void run()
     {
         double numCorrect = 0;

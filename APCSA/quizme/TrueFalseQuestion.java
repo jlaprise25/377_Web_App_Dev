@@ -1,11 +1,19 @@
 public class TrueFalseQuestion extends Question {
-
+    //Constructs a TrueFalseQuestion with the given prompt and answer.
     public TrueFalseQuestion(String prompt, boolean answer)
     {
         super(prompt, Boolean.toString(answer));
     }
 
-
+    /** 
+    * Checks if the user's answer matches this TrueFalseQuestion's expected answer. 
+    * This method will consider any of the following values (case-insensitive) to be true:
+    * T
+    * True
+    * Y
+    * Yes
+    * All other values will be considered false.
+    */
     @Override
     public boolean checkAnswer(String answer)
     {
@@ -31,10 +39,10 @@ public class TrueFalseQuestion extends Question {
         }
     }
 
+    // Returns the prompt for this Question prefixed with the text: "True or false: ".
     @Override
     public String getPrompt()
     {
         return "True or False: " + super.getPrompt();
     }
 }
-
