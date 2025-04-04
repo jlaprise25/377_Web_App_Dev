@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BattleshipDriver",
+            "request": "launch",
+            "mainClass": "BattleshipDriver",
+            "projectName": "377_Web_App_Dev_6447f16d"
+        },
+        {
+            "type": "java",
+            "name": "Quiz",
+            "request": "launch",
+            "mainClass": "Quiz",
+            "projectName": "377_Web_App_Dev_6447f16d"
+        },
+        {
+            "type": "java",
+            "name": "aoc12Part1",
+            "request": "launch",
+            "mainClass": "aoc12Part1",
+            "projectName": "377_Web_App_Dev_6447f16d"
+        },
+        {
+            "type": "java",
+            "name": "aoc12Part2",
+            "request": "launch",
+            "mainClass": "aoc12Part2",
+            "projectName": "377_Web_App_Dev_6447f16d"
+        }
+    ]
+}
